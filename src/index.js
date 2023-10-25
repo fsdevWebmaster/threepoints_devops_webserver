@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
   res.send(`Hello ${name}!`);
 });
 
+app.get('/actions', (req, res) => {
+  res.send('Testing actions')
+})
+
 const port = process.env.PORT || 8090;
 app.listen(port, () => {
   console.log(`helloworld: listening on port ${port}`);
