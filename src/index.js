@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/actions', (req, res) => {
-  res.send('Testing actions')
+  res.send('Testing action')
 })
 
 const port = process.env.PORT || 8090;
