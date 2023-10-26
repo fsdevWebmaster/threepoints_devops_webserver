@@ -23,13 +23,13 @@ jobs:
         uses: andstor/file-existence-action@v2
         with:
           files: "allow_pull_request.txt"
+      - run: echo "allow_pull=false" >> "$GITHUB_ENV"
       
-      - run: allow_pull='false' >> $GITHUB_ENV
       - name: "File exists"
         id: file_exists
         if: steps.file_check.outputs.files_exists == 'true'
         run: |
-          allow_pull='true' >> $GITHUB_ENV          
+          echo "allow_pull=true" >> "$GITHUB_ENV"
       
       - name: "Can build"
         
