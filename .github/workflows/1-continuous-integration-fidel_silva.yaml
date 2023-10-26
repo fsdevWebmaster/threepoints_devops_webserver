@@ -14,6 +14,10 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
+        name: "Branch checking"
+      - run: echo "Actual branch ${{github.ref_name}}"
+
+      - uses: actions/checkout@v4
         name: "Pruebas de SAST"
         env:
           USERNAME: ${{secrets.USERNAME}}
@@ -21,6 +25,7 @@ jobs:
       - run: |
           echo "Ejecución de pruebas de SAST"
           echo "Ref:: ${{ github.ref_name }}"
+
       
       # - uses: actions/checkout@v4
       #   name: "Crear archivo de configuración"
