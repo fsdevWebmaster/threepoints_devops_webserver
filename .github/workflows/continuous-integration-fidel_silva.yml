@@ -9,15 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: "Pruebas de SAST"
+        env:
+          USERNAME: ${{secrets.USERNAME}}
       - run: echo "Ejecución de pruebas de SAST"
       - uses: actions/checkout@v4
         name: "Crear archivo de configuración"
-        env:
-          USERNAME: ${{secrets.USERNAME}}
       - run: | 
           touch ./credentials.ini
           echo "[credentials]" >> ./credentials.ini
-          echo "user=$USERNAME" \n "password=password" >> ./credentials.ini
+          echo 'user="$USERNAME"' \n "password=password" >> ./credentials.ini
           ls -l ${{ github.workspace }}
           cat ./credentials.ini
 
