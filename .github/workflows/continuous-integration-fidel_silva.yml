@@ -3,7 +3,7 @@ name: practica-3-workflow
 on: push
 
 jobs: 
-  sast-tests:
+  practica-3:
     runs-on: ubuntu-latest
     
     steps:
@@ -26,8 +26,8 @@ jobs:
       - uses: actions/checkout@v4
         name: "Build docker image"
       - run: | 
-          echo "Error:: tag name with $(date +%s) is not valid."
-          echo "Build with different tag name."
+          echo "WARN:: tag name with $(date +%s) is not valid."
+          echo "Build image with a different tag name."
       - run: docker build -t devops_ws:v0 .
         
 
