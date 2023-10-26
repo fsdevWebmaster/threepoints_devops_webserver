@@ -15,6 +15,7 @@ jobs:
       - run: | 
           touch ./../../credentials.ini
           echo "[credentials]" >> ./../../credentials.ini
+          ls -l ${{ github.workspace }}
 
       
 
