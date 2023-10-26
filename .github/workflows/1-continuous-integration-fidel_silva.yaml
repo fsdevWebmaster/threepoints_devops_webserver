@@ -4,6 +4,8 @@ on:
   push:
     branches: 
       - master
+      - feature**
+      - hotfix**
 
 
 jobs: 
@@ -26,7 +28,7 @@ jobs:
       #     touch ./credentials.ini
       #     echo "[credentials]" >> ./credentials.ini
       #     echo 'user="$USERNAME" password="$PASSWORD"' >> ./credentials.ini
-      #     ls -l ${{ github.workspace }}
+          # ls -l ${{ github.workspace }}
       #     cat ./credentials.ini
       
       # - uses: actions/checkout@v4
