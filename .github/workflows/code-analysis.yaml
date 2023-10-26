@@ -1,9 +1,9 @@
 name: practica-3-3-workflow
 
 on: 
-  pull_request:
+  push:
     branches: 
-      - master
+      - exercice-3
 
 
 jobs: 
