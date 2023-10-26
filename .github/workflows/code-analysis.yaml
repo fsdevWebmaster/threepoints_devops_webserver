@@ -32,7 +32,7 @@ jobs:
           echo "allow_pull=true" >> "$GITHUB_ENV"
       
       - name: "Can build"
-        
+        if: env.allow_pull == 'true'
         run: |
           echo "Building allowed: $allow_pull"
   
