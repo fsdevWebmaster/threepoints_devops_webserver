@@ -23,8 +23,7 @@ jobs:
           files: "allow_pull_request.txt"
       
       - name: "File exists"
-        uses: actions/checkout@v4
-      - run: echo "${step.file_check.outputs.files_exists}"
-      
+        if: steps.file_check.outputs.files_exists == 'true'
+        run: echo "hola"
   
   
