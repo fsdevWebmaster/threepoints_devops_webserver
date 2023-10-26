@@ -1,4 +1,4 @@
-name: practica-3-workflow
+name: practica-3-3-workflow
 
 on: 
   pull_request:
