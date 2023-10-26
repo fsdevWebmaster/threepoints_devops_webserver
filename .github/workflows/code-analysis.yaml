@@ -24,7 +24,7 @@ jobs:
       
       - name: "File exists"
         uses: actions/checkout@v4
-      - run: echo "result.. step.file_check.outputs.files_exists"
+      - run: echo "result.. ${step.file_check.outputs.files_exists}"
       
   
   
