@@ -30,7 +30,7 @@ jobs:
         if: steps.file_check.outputs.files_exists == 'true'
         run: |
           allow_pull='true'
-          echo "File exists: [$allow_pull]"
+          echo "[$allow_pull]"
       
       - name: "Can build"
         if: steps.file_exists.outputs == 'true'
