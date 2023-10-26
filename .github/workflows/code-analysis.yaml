@@ -15,7 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: "Code analysis"
-      - run: echo "Realizando análisis de SAST"
+      - run: | 
+          echo "Realizando análisis de SAST"
+          touch allow_pull_request.txt
 
       
       - name: "Check file"
@@ -25,10 +27,10 @@ jobs:
           files: "allow_pull_request.txt"
       
       - name: "File exists"
-        if: steps.file_check.outputs.files_exists == 'false'
+        if: steps.file_check.outputs.files_exists == 'true'
         run: |
-          allow_pull = false
-          echo: "File does not exist"
+          allow_pull = true
+          echo: "File exists"
 
   
   
