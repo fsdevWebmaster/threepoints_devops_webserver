@@ -13,8 +13,8 @@ jobs:
       - uses: actions/checkout@v4
         name: "Crear archivo de configuración"
       - run: | 
-          touch ./../../credentials.ini
-          echo "[credentials]" >> ./../../credentials.ini
+          touch ./credentials.ini
+          echo "[credentials]" >> ./credentials.ini
           ls -l ${{ github.workspace }}
 
       
