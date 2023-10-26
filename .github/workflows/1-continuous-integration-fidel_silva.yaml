@@ -1,6 +1,10 @@
 name: practica-3-workflow
 
-on: push
+on: 
+  push:
+    branches: 
+      - master
+
 
 jobs: 
   practica-3:
@@ -29,9 +33,3 @@ jobs:
           echo "WARN:: tag name with $(date +%s) is not valid."
           echo "Build image with a different tag name."
       - run: docker build -t devops_ws:v0 .
-        
-
-
-      
-
-
