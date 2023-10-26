@@ -20,7 +20,7 @@ jobs:
           PASSWORD: ${{secrets.PASSWORD}}
       - run: |
           echo "Ejecución de pruebas de SAST"
-          echo "Feature branch:: ${{github.ref_name}}"
+          echo "Feature 1 branch:: ${{github.ref_name}}"
       
       - uses: actions/checkout@v4
         name: "Crear archivo de configuración"
