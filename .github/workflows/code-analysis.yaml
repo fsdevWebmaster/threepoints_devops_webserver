@@ -25,10 +25,10 @@ jobs:
           files: "allow_pull_request.txt"
       
       - name: "File exists"
-        if: steps.file_check.outputs.files_exists == 'true'
+        if: steps.file_check.outputs.files_exists == 'false'
         run: |
-          allow_pull = true
-          echo: "File exists"
+          allow_pull = false
+          echo: "File does not exist"
 
   
   
