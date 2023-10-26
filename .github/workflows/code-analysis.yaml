@@ -29,7 +29,6 @@ jobs:
         if: steps.file_check.outputs.files_exists == 'true'
         run: |
           echo "File exists"
-          return true
       
       - name: "Can build"
         if: steps.file_exists.outputs == 'true'
