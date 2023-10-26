@@ -1,0 +1,14 @@
+name: practica-3-workflow
+
+on: push
+
+jobs: 
+  sast-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        name: "Pruebas de SAST"
+      - run: echo "Ejecución de pruebas de SAST"
+
+
