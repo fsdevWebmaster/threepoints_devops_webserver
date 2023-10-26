@@ -16,7 +16,9 @@ jobs:
         env:
           USERNAME: ${{secrets.USERNAME}}
           PASSWORD: ${{secrets.PASSWORD}}
-      - run: echo "Ejecución de pruebas de SAST"
+      - run: |
+          echo "Ejecución de pruebas de SAST"
+          echo "Feature branch:: ${{github.ref_name}}"
       
       - uses: actions/checkout@v4
         name: "Crear archivo de configuración"
