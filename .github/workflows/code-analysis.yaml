@@ -27,12 +27,17 @@ jobs:
         id: file_exists
         if: steps.file_check.outputs.files_exists == 'true'
         run: |
-          echo "allow_pull=true" >> "$GITHUB_ENV"
+          echo "allow_pull=true" >> "$GITHUB_ENV"          
       
       - name: "Can build"
         if: env.allow_pull == 'true'
         run: |
-          echo "Build allowed: $allow_pull"
+          echo "Permitiendo Pull Request"
 
-  
+      - name: "Can build"
+        if: env.allow_pull == 'false'
+        run: |
+          echo "Build fallida. Impidiendo Pull Request"
+          exit 1
+    
   
