@@ -9,6 +9,8 @@ on:
 jobs: 
   exercice-3:
     runs-on: ubuntu-latest
+    env: 
+      allow_pull: false
 
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +26,9 @@ jobs:
       
       - name: "File exists"
         if: steps.file_check.outputs.files_exists == 'true'
-        run: echo "hola"
+        run: |
+          allow_pull = true
+          echo: "File exists"
+
   
   
