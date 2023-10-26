@@ -24,17 +24,16 @@ jobs:
         with:
           files: "allow_pull_request.txt"
       
-      - run: allow_pull='false'
+      - run: allow_pull='false' >> $GITHUB_ENV
       - name: "File exists"
         id: file_exists
         if: steps.file_check.outputs.files_exists == 'true'
         run: |
-          $allow_pull='true'
-          echo "[$allow_pull]"
+          allow_pull='true' >> $GITHUB_ENV          
       
       - name: "Can build"
-        if: steps.file_exists.outputs == 'true'
+        
         run: |
-          echo "Building allowed"
+          echo "Building allowed: ${allow_pull}"
   
   
