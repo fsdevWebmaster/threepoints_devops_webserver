@@ -9,8 +9,6 @@ on:
 jobs: 
   exercice-3:
     runs-on: ubuntu-latest
-    env: 
-      allow_pull: false
 
     steps:
       - uses: actions/checkout@v4
@@ -27,9 +25,9 @@ jobs:
           files: "allow_pull_request.txt"
       
       - name: "File exists"
+        id: file_exists
         if: steps.file_check.outputs.files_exists == 'true'
         run: |
-          $allow_pull = true
           echo: "File exists"
 
   
