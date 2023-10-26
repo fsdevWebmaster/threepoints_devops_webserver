@@ -16,20 +16,22 @@ jobs:
         env:
           USERNAME: ${{secrets.USERNAME}}
           PASSWORD: ${{secrets.PASSWORD}}
-      - run: echo "Ejecución de pruebas de SAST"
+      - run: |
+          echo "Ejecución de pruebas de SAST"
+          echo "Ref:: ${{ github.ref_name }}"
       
-      - uses: actions/checkout@v4
-        name: "Crear archivo de configuración"
-      - run: | 
-          touch ./credentials.ini
-          echo "[credentials]" >> ./credentials.ini
-          echo 'user="$USERNAME" password="$PASSWORD"' >> ./credentials.ini
-          ls -l ${{ github.workspace }}
-          cat ./credentials.ini
+      # - uses: actions/checkout@v4
+      #   name: "Crear archivo de configuración"
+      # - run: | 
+      #     touch ./credentials.ini
+      #     echo "[credentials]" >> ./credentials.ini
+      #     echo 'user="$USERNAME" password="$PASSWORD"' >> ./credentials.ini
+      #     ls -l ${{ github.workspace }}
+      #     cat ./credentials.ini
       
-      - uses: actions/checkout@v4
-        name: "Build docker image"
-      - run: | 
-          echo "WARN:: tag name with $(date +%s) is not valid."
-          echo "Build image with a different tag name."
-      - run: docker build -t devops_ws:v0 .
+      # - uses: actions/checkout@v4
+      #   name: "Build docker image"
+      # - run: | 
+      #     echo "WARN:: tag name with $(date +%s) is not valid."
+      #     echo "Build image with a different tag name."
+      # - run: docker build -t devops_ws:v0 .
