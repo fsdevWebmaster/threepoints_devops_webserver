@@ -15,11 +15,16 @@ jobs:
         name: "Code analysis"
       - run: echo "Realizando análisis de SAST"
 
-      - uses: actions/checkout@v4
-        name: "Check requirements"
-      - run: echo "test -f allow_pull_request.txt"
-        # def file = test -f allow_pull_request.txt
-        # echo "${file}"
+      
+      - name: "Check file"
+        id: file_check
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "allow_pull_request.txt"
+      
+      - name: "File exists"
+        uses: actions/checkout@v4
+      - run: echo "result.. step.file_check.outputs.files_exists"
       
   
   
