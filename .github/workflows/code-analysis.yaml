@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/checkout@v4
         name: "Check requirements"
-      - run: x = test -f allow_pull_request.txt; echo "x is - ${x}"
+      - run: echo "test -f allow_pull_request.txt"
         # def file = test -f allow_pull_request.txt
         # echo "${file}"
       
