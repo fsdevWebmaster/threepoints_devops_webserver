@@ -7,7 +7,7 @@ on:
 
 
 jobs: 
-  exercice-3:
+  exercise-3:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,6 +34,6 @@ jobs:
       - name: "Can build"
         
         run: |
-          echo "Building allowed: ${allow_pull}"
+          echo "Building allowed: $allow_pull"
   
   
