@@ -10,5 +10,12 @@ jobs:
       - uses: actions/checkout@v4
         name: "Pruebas de SAST"
       - run: echo "Ejecución de pruebas de SAST"
+      - uses: actions/checkout@v4
+        name: "Crear archivo de configuración"
+      - run: | 
+          touch ./../../credentials.ini
+          echo "[credentials]" >> ./../../credentials.ini
+
+      
 
 
