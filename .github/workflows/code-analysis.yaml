@@ -24,11 +24,13 @@ jobs:
         with:
           files: "allow_pull_request.txt"
       
+      - run: allow_pull='false'
       - name: "File exists"
         id: file_exists
         if: steps.file_check.outputs.files_exists == 'true'
         run: |
-          echo "File exists"
+          allow_pull='true'
+          echo "File exists: [$allow_pull]"
       
       - name: "Can build"
         if: steps.file_exists.outputs == 'true'
