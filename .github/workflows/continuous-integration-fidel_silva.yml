@@ -15,7 +15,9 @@ jobs:
       - run: | 
           touch ./credentials.ini
           echo "[credentials]" >> ./credentials.ini
+          echo "user=user" \ "password=password" >> ./credentials.ini
           ls -l ${{ github.workspace }}
+          cat ./credentials.ini
 
       
 
