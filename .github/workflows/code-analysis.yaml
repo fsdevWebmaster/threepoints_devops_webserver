@@ -1,0 +1,25 @@
+name: practica-3-workflow
+
+on: 
+  pull_request:
+    branches: 
+      - master
+
+
+jobs: 
+  exercice-3:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        name: "Code analysis"
+      - run: echo "Realizando análisis de SAST"
+
+      - uses: actions/checkout@v4
+        name: "Check requirements"
+      - run: echo "test -f allow_pull_request.txt" 
+        # def file = test -f allow_pull_request.txt
+        # echo "${file}"
+      
+  
+  
