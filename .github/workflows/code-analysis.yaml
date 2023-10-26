@@ -28,7 +28,7 @@ jobs:
         id: file_exists
         if: steps.file_check.outputs.files_exists == 'true'
         run: |
-          echo: "File exists"
+          echo "File exists"
 
   
   
