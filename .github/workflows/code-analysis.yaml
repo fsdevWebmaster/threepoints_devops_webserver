@@ -1,25 +1,44 @@
-name: practica-3-workflow
+name: practica-3-3-workflow
 
 on: 
-  pull_request:
+  push:
     branches: 
-      - master
+      - exercice-3
 
 
 jobs: 
-  exercice-3:
+  exercise-3:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-        name: "Code analysis"
-      - run: echo "Realizando análisis de SAST"
-
-      - uses: actions/checkout@v4
-        name: "Check requirements"
-      - run: echo "test -f allow_pull_request.txt" 
-        # def file = test -f allow_pull_request.txt
-        # echo "${file}"
+      - name: "Code analysis"
+        uses: actions/checkout@v4
+      - run: | 
+          echo "Realizando análisis de SAST"
+          touch allow_pull_request.txt
       
-  
+      - name: "Check file"
+        id: file_check
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "allow_pull_request.txt"
+      - run: echo "allow_pull=false" >> "$GITHUB_ENV"
+      
+      - name: "File exists"
+        id: file_exists
+        if: steps.file_check.outputs.files_exists == 'true'
+        run: |
+          echo "allow_pull=true" >> "$GITHUB_ENV"          
+      
+      - name: "Can build"
+        if: env.allow_pull == 'true'
+        run: |
+          echo "Permitiendo Pull Request"
+
+      - name: "Can't build"
+        if: env.allow_pull == 'false'
+        run: |
+          echo "Build fallida. Impidiendo Pull Request"
+          exit 1
+    
   
