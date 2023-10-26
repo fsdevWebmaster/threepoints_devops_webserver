@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
       - run: | 
           echo "Realizando análisis de SAST"
+          touch allow_pull_request.txt
       
       - name: "Check file"
         id: file_check
@@ -34,7 +35,7 @@ jobs:
         run: |
           echo "Permitiendo Pull Request"
 
-      - name: "Can build"
+      - name: "Can't build"
         if: env.allow_pull == 'false'
         run: |
           echo "Build fallida. Impidiendo Pull Request"
